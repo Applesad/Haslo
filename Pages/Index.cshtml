@@ -1,0 +1,38 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<form method="post">
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="mb-3">
+<label asp-for="Person.FirstName" class="control-label"></label>
+<input asp-for="Person.FirstName" class="form-control" />
+<span asp-validation-for="Person.FirstName"
+class="text-danger"></span>
+</div>
+<div class="mb-3">
+<label asp-for="Person.LastName" class="control-label"></label>
+<input asp-for="Person.LastName" class="form-control" />
+</div>
+<div class="mb-3">
+<label asp-for="Person.RokUrodzenia" class="control-label"></label>
+<input asp-for="Person.RokUrodzenia" class="form-control" />
+<span asp-validation-for="Person.RokUrodzenia" class="text-danger"></span>
+</div>
+<div class="mb-3">
+<input type="submit" value="Create" class="btn btn-primary" />
+</div>
+</form>
+@if (TempData["AlertMessage"] != null)
+{
+<div class="alert alert-success mt-3 p-3" role="alert">
+        @TempData["AlertMessage"].
+    </div>
+}
